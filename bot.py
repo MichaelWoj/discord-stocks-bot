@@ -4,12 +4,12 @@ import discord
 import functions
 from configparser import ConfigParser
 from discord.ext import tasks
-import sys
+import os
 
 exchange = ccxt.bybit()
 config = ConfigParser()
 config.read("config.ini")
-CHANNEL_ID = int(sys.argv[1])
+CHANNEL_ID = int(os.environ['CHANNEL'])
 
 class MyBot(discord.Client):
     def __init__(self, **options):
@@ -48,4 +48,4 @@ intents.guilds = True
 
 # Run the bot
 bot = MyBot(intents=intents)
-bot.run(str(sys.argv[2]))
+bot.run(str(os.environ['TOKEN']))
