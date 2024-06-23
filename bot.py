@@ -33,6 +33,8 @@ class MyBot(discord.Client):
             message = f'RSI is over 70: {rsi:.2f}.'
         elif rsi < 30:
             message = f'RSI is below 30: {rsi:.2f}.'
+        else:
+            message = f'its working  {rsi:.2f}'
 
         if message:
             await self.channel.send(message)
