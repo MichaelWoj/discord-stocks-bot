@@ -9,6 +9,6 @@ WORKDIR /usr/src/app/discord-stocks-bot
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV CHANNEL=YOUR_CHANNEL_ID
-ENV TOKEN=YOUR_TOKEN
+ENV TOKEN=YOUR_BOT_TOKEN
 
-CMD ["python", "bot.py", CHANNEL, TOKEN]
+CMD ["python", "bot.py"]

@@ -4,7 +4,6 @@ import ta
 
 exchange = ccxt.bybit()
 
-# Function to fetch K-line data
 def fetch_klines(symbol, timeframe):
     klines = exchange.fetch_ohlcv(symbol, timeframe=timeframe)
     # Converts the data into a pandas DataFrame, to make it easier to handle. 
@@ -13,7 +12,7 @@ def fetch_klines(symbol, timeframe):
     df['timestamp'] = pd.to_datetime(df['timestamp'], unit='ms')
     return df
 
-# Function to calculate RSI
 def calculate_rsi(data, window):
+    # Uses the Technical Analysis library to calculate the RSI over a specified time window 
     data['rsi'] = ta.momentum.RSIIndicator(data['close'], window=window).rsi()
     return data
